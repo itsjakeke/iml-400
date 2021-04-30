@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <link rel="stylesheet" href="style.css"></link>
+    <script src="jquery.js"></script>
+    <script src="main.js"></script>
+    <script>
+      function populate() {
+
+        // var myList = ["red", "orange", "green", "blue", "purple", "brown", "magenta", "tan", "cyan", "olive", "maroon", "navy",
+        // "aquamarine", "turquoise", "silver", "lime", "teal", "indigo", "violet", "pink", "black", "white", "grey", "gray"];
+         var myList = ["supermodel", "love galore", "doves in the wind", "drew barrymore", "prom", "the weekend", "go gina", "garden", "garden (say it like dat)", "broken clocks", "anything", "wavy", "wavy (interlude)", "normal girl", "pretty little birds", "20 something"];
+         var videos = ["https://www.youtube.com/embed/Tiixq9rT_J0", "https://www.youtube.com/embed/hHXfCOjb3fk", "https://www.youtube.com/embed/Zg165-mZ7x8",
+         "https://www.youtube.com/embed/dp45V_M4Akw", "https://www.youtube.com/embed/CAgzfcWAlTo", "https://www.youtube.com/embed/cMD63TwzB1o", "https://www.youtube.com/embed/UWktRW128UA",
+         "https://www.youtube.com/embed/pcJo0tIWybY", "https://www.youtube.com/embed/pcJo0tIWybY", "https://www.youtube.com/embed/xuo1J0rlNaU", "https://www.youtube.com/embed/7fPTgnCBO1Y",
+         "https://www.youtube.com/embed/ZUJ235WszPA", "https://www.youtube.com/embed/ZUJ235WszPA", "https://www.youtube.com/embed/_R2LiwXtuLQ", "https://www.youtube.com/embed/5sc1YvgxlSg",
+         "https://www.youtube.com/embed/Azqv46WFxZE"];
+
+            if (myList.includes(document.myform.userColor.value)) {
+
+              var index = myList.indexOf(document.myform.userColor.value);
+              var element = document.getElementById("musicvideo");
+              var video;
+              if(typeof(element) != 'undefined' && element != null) {
+                  document.getElementById("musicvideo").setAttribute("src", videos[index]);
+              } else {
+                  video = document.createElement("iframe");
+                  video.setAttribute("id", "musicvideo");
+                  video.setAttribute("width", "1120");
+                  video.setAttribute("height", "630");
+                  video.setAttribute("frameborder", "0");
+                  video.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture");
+                  video.setAttribute("src", videos[index]);
+                  // video.setAttribute("position", "absolute");
+                  document.body.appendChild(video);
+              }
+
+
+
+
+            }
+            else{
+                window.alert("sorry, try a different color!");
+            }
+      }
+    </script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+  </head>
+
+    <body>
+
+
+      <form name="myform" onsubmit="return populate(); " class="search">
+        input a song from SZA's "CTRL": <input type="text" name="userColor" value"${userColor}"><br>
+          <style>
+            .search {
+              display: inline-block;
+              position: relative;
+              width: 375px;
+              height: 55px;
+
+              border-radius: 27px;
+
+              color: #fff;
+              font: 700 14px/60px "Droid Sans", sans-serif;
+              letter-spacing: 0.05em;
+              text-align: center;
+              text-decoration: none;
+              text-transform: uppercase;
+            }
+          </style>
+      </form>
+      <!-- <a href="style.css" class="button">click me for a surprise!</a> -->
+      <!-- <button onclick="populate() "> click me for a surprise! </button> -->
+      <a button onclick="populate()" class="btn-liquid">
+		  <span class="inner">click me for a surprise!</span>
+      </a>
+        <style>
+
+          /* button {
+          display: inline-block;
+          background-color: #7b38d8;
+          border-radius: 10px;
+          border: 4px double #cccccc;
+          color: #eeeeee;
+          text-align: center;
+          font-size: 28px;
+          padding: 20px;
+          width: 200px;
+          -webkit-transition: all 0.5s;
+          -moz-transition: all 0.5s;
+          -o-transition: all 0.5s;
+          transition: all 0.5s;
+          cursor: pointer;
+          margin: 5px;
+          }
+          .button {
+          padding: 15px 100px;
+          margin:10px 4px;
+          color: #eee;
+          font-family: sans-serif;
+          text-transform: uppercase;
+          text-align: center;
+          position: relative;
+          text-decoration: none;
+          display:inline-block;
+          border:1px solid ;
+          }
+          button:hover {
+          background-color: green;
+          } */
+          body {
+          	display: flex;
+          	height: 10vh;
+
+          	align-items: center;
+          	justify-content: center;
+          }
+
+          .btn-liquid {
+          	display: inline-block;
+          	position: relative;
+          	width: 240px;
+          	height: 60px;
+
+          	border-radius: 27px;
+
+          	color: #fff;
+          	font: 700 14px/60px "Droid Sans", sans-serif;
+          	letter-spacing: 0.05em;
+          	text-align: center;
+          	text-decoration: none;
+          	text-transform: uppercase;
+          }
+
+          .btn-liquid .inner {
+          	position: relative;
+
+          	z-index: 2;
+          }
+
+          .btn-liquid canvas {
+          	position: absolute;
+          	top: -50px;
+          	right: -50px;
+          	bottom: -50px;
+          	left: -50px;
+
+          	z-index: 1;
+          }
+
+        </style>
+    </body>
+  </html>
